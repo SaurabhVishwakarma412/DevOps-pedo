@@ -35,7 +35,7 @@ const About = () => {
               What is Pediatric Tele-Dermatology?
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Pediatric Tele-Dermatology is a modern, technology-driven healthcare solution that
+              Pediatric Tele-Dermatology is a advanced, technology-driven healthcare solution that
               allows parents to connect with board-certified pediatric dermatologists without
               visiting a clinic. Using secure digital platforms, parents can upload clear images of
               their child’s skin condition, describe symptoms, and receive expert consultation
@@ -66,7 +66,7 @@ const About = () => {
             <h2 className="text-4xl font-bold text-blue-900 mb-5">Conditions We Treat</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
               Our skilled pediatric dermatologists diagnose and treat a wide range of childhood
-              skin conditions including eczema, birthmarks, diaper rash, psoriasis, vitiligo,
+              skin conditions including eczema, diaper rash, psoriasis, vitiligo,
               eczema, acne, fungal infections, sunburn reactions, allergies, and various skin
               irritations. Each treatment plan is specially tailored considering the child's age,
               symptoms, skin sensitivity, and medical history, ensuring a safe and effective

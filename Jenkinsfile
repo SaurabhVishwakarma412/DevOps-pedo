@@ -47,21 +47,6 @@ pipeline {
             }
         }
 
-        // stage('Deploy Containers') {
-        //     steps {
-        //         bat '''
-        //             docker stop pedoderma-backend || exit /b 0
-        //             docker rm pedoderma-backend || exit /b 0
-
-        //             docker stop pedoderma-frontend || exit /b 0
-        //             docker rm pedoderma-frontend || exit /b 0
-
-        //             docker run -d --name pedoderma-backend -p 5000:5000 %BACKEND_IMAGE%
-
-        //             docker run -d --name pedoderma-frontend -p 5173:80 %FRONTEND_IMAGE%
-        //         '''
-        //     }
-        // }
         stage('Deploy Containers') {
             steps {
                 bat '''
