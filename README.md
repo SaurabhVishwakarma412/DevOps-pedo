@@ -110,7 +110,6 @@ backend/
 ## 🔐 Authentication Flow
 
 - JSON Web Tokens (JWT) used for secure route access
-- Separate login portals for Parent and Doctor roles
 
 - Parent → Login → JWT Created → Access Dashboard → Submit Case
 - Doctor → Login → JWT Created → Access Dashboard → Review Cases

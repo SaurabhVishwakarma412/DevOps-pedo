@@ -61,6 +61,6 @@ pipeline {
                     docker run -d --name pedoderma-frontend -p 5173:80 saurabhkv/project-pedo-frontend:latest
                 '''
             }
-}
+        }
     }
 }
