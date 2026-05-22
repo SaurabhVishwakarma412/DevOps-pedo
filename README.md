@@ -16,18 +16,7 @@ A full-stack **MERN** (MongoDB, Express.js, React.js, Node.js) based web applica
 - Manage doctors data
 - View analytics and total case counts
 
----
 
-## 🏗️ Tech Stack
-
-| Layer | Technologies Used |
-|-------|------------------|
-| **Frontend** | React.js, Tailwind CSS, Axios, React Router |
-| **Backend** | Node.js, Express.js, Multer (image upload), JWT Auth |
-| **Database** | MongoDB, Mongoose ORM |
-| **Deployment** | https://pedo-derma.vercel.app |
-
----
 
 ## 📁 Folder Structure
 
