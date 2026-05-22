@@ -111,7 +111,6 @@ backend/
 
 - JSON Web Tokens (JWT) used for secure route access
 - Separate login portals for Parent and Doctor roles
-- Middleware validates token before protected route access
 
 - Parent → Login → JWT Created → Access Dashboard → Submit Case
 - Doctor → Login → JWT Created → Access Dashboard → Review Cases
