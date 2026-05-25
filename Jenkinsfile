@@ -49,20 +49,24 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                withCredentials([sshUserPrivateKey(
-                    credentialsId: 'ec2-ssh-key',
-                    keyFileVariable: 'SSH_KEY',
-                    usernameVariable: 'SSH_USER'
-                )]) {
-                    bat '''
-                        ssh -o StrictHostKeyChecking=no -i "%SSH_KEY%" %SSH_USER%@13.207.69.222 ^
-                        "docker pull %BACKEND_IMAGE% && ^
-                        docker pull %FRONTEND_IMAGE% && ^
-                        docker rm -f pedoderma_backend pedoderma_frontend 2>/dev/null || true && ^
-                        docker run -d --name pedoderma_backend -p 5000:5000 --env-file /home/ubuntu/backend.env %BACKEND_IMAGE% && ^
-                        docker run -d --name pedoderma_frontend -p 5173:80 %FRONTEND_IMAGE%"
-                    '''
-                }
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: 'ec2-server',
+                            transfers: [
+                                sshTransfer(
+                                    execCommand: '''
+        docker pull saurabhkv/project-pedo-backend:latest
+        docker pull saurabhkv/project-pedo-frontend:latest
+        docker rm -f pedoderma_backend pedoderma_frontend || true
+        docker run -d --name pedoderma_backend -p 5000:5000 --env-file /home/ubuntu/backend.env saurabhkv/project-pedo-backend:latest
+        docker run -d --name pedoderma_frontend -p 5173:80 saurabhkv/project-pedo-frontend:latest
+        '''
+                                )
+                            ]
+                        )
+                    ]
+                )
             }
         }
     }
