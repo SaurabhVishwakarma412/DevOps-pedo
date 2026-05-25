@@ -105,7 +105,7 @@ const DoctorsList = () => {
                 onChange={(e) => setFilters({...filters, availability: e.target.value})}
                 className="w-full border border-gray-300 rounded px-3 py-2"
               >
-                <option value="">Any Time</option>
+                <option value="">Whenever</option>
                 <option value="today">Today</option>
                 <option value="this_week">This Week</option>
                 <option value="weekend">Weekend</option>
