@@ -110,7 +110,6 @@ backend/
 ## 🔐 Authentication Flow
 
 
-- Doctor → Login → JWT Created → Access Dashboard → Review Cases
 
 
 ---
