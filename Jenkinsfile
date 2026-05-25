@@ -116,16 +116,15 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                    sshagent(['ec2-ssh-key']) {
-                        bat '''
-                            ssh -o StrictHostKeyChecking=no ubuntu@13.207.69.222 ^
-                            "docker pull saurabhkv/project-pedo-backend:latest && ^
-                            docker pull saurabhkv/project-pedo-frontend:latest && ^
-                            docker compose -f /home/ubuntu/Project-pedo/docker-compose.yml down && ^
-                            docker compose -f /home/ubuntu/Project-pedo/docker-compose.yml up -d"
-                        '''
-                    }
-                }
+                bat '''
+                    ssh -i C:\\Users\\hp\\Documents\\ssh\\pedoderma-key.pem -o StrictHostKeyChecking=no ubuntu@13.207.69.222 ^
+                    "docker pull saurabhkv/project-pedo-backend:latest && ^
+                    docker pull saurabhkv/project-pedo-frontend:latest && ^
+                    docker rm -f pedoderma_backend pedoderma_frontend && ^
+                    docker run -d --name pedoderma_backend -p 5000:5000 --env-file /home/ubuntu/backend.env saurabhkv/project-pedo-backend:latest && ^
+                    docker run -d --name pedoderma_frontend -p 5173:80 saurabhkv/project-pedo-frontend:latest"
+                '''
+            }
         }
     }
 }
