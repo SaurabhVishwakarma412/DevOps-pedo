@@ -140,7 +140,6 @@ Parent Sees Diagnosis Report
 🚧 **In Progress**  
 More features coming soon including:
 - Real-time chat with dermatologists
-- Appointment scheduling system
 
 ---
 

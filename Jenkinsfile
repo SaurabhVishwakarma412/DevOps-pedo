@@ -56,12 +56,12 @@ pipeline {
                             transfers: [
                                 sshTransfer(
                                     execCommand: '''
-        docker pull saurabhkv/project-pedo-backend:latest
-        docker pull saurabhkv/project-pedo-frontend:latest
-        docker rm -f pedoderma_backend pedoderma_frontend || true
-        docker run -d --name pedoderma_backend -p 5000:5000 --env-file /home/ubuntu/backend.env saurabhkv/project-pedo-backend:latest
-        docker run -d --name pedoderma_frontend -p 5173:80 saurabhkv/project-pedo-frontend:latest
-        '''
+                                    docker pull saurabhkv/project-pedo-backend:latest
+                                    docker pull saurabhkv/project-pedo-frontend:latest
+                                    docker rm -f pedoderma_backend pedoderma_frontend || true
+                                    docker run -d --name pedoderma_backend -p 5000:5000 --env-file /home/ubuntu/backend.env saurabhkv/project-pedo-backend:latest
+                                    docker run -d --name pedoderma_frontend -p 5173:80 saurabhkv/project-pedo-frontend:latest
+                                    '''
                                 )
                             ]
                         )
