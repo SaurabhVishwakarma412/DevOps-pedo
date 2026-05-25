@@ -1,8 +1,29 @@
+# version: '3.8'
+
+# services:
+#   backend:
+#     build: ./backend
+#     container_name: pedoderma_backend
+#     ports:
+#       - "5000:5000"
+#     env_file:
+#       - ./backend/.env
+#     restart: always
+
+#   frontend:
+#     build: ./frontend
+#     container_name: pedoderma_frontend
+#     ports:
+#       - "3000:80"
+#     depends_on:
+#       - backend
+#     restart: always
+
 version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    image: saurabhkv/project-pedo-backend:latest
     container_name: pedoderma_backend
     ports:
       - "5000:5000"
@@ -11,10 +32,21 @@ services:
     restart: always
 
   frontend:
-    build: ./frontend
+    image: saurabhkv/project-pedo-frontend:latest
     container_name: pedoderma_frontend
     ports:
-      - "3000:80"
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: always
+
+  prometheus:
+    image: prom/prometheus
+    container_name: pedoderma_prometheus
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     depends_on:
       - backend
     restart: always
