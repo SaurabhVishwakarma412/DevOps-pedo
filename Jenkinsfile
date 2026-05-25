@@ -49,12 +49,16 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                sshagent(credentials: ['ec2-ssh-key']) {
+                withCredentials([sshUserPrivateKey(
+                    credentialsId: 'ec2-ssh-key',
+                    keyFileVariable: 'SSH_KEY',
+                    usernameVariable: 'SSH_USER'
+                )]) {
                     bat '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@13.207.69.222 ^
+                        ssh -o StrictHostKeyChecking=no -i "%SSH_KEY%" %SSH_USER%@13.207.69.222 ^
                         "docker pull %BACKEND_IMAGE% && ^
                         docker pull %FRONTEND_IMAGE% && ^
-                        docker rm -f pedoderma_backend pedoderma_frontend 2>/dev/null ; ^
+                        docker rm -f pedoderma_backend pedoderma_frontend 2>/dev/null || true && ^
                         docker run -d --name pedoderma_backend -p 5000:5000 --env-file /home/ubuntu/backend.env %BACKEND_IMAGE% && ^
                         docker run -d --name pedoderma_frontend -p 5173:80 %FRONTEND_IMAGE%"
                     '''
