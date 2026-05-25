@@ -107,8 +107,6 @@ backend/
 
 ---
 
-## 🔐 Authentication Flow
-
 
 
 
