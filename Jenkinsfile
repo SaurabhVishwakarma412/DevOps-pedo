@@ -114,14 +114,18 @@ pipeline {
             }
         }
 
-        stage('Deploy via Docker Compose') {
+        stage('Deploy to EC2') {
             steps {
-                bat '''
-                    docker-compose down
-                    docker-compose pull
-                    docker-compose up -d
-                '''
-            }
+                    sshagent(['ec2-ssh-key']) {
+                        bat '''
+                            ssh -o StrictHostKeyChecking=no ubuntu@13.207.69.222 ^
+                            "docker pull saurabhkv/project-pedo-backend:latest && ^
+                            docker pull saurabhkv/project-pedo-frontend:latest && ^
+                            docker compose -f /home/ubuntu/Project-pedo/docker-compose.yml down && ^
+                            docker compose -f /home/ubuntu/Project-pedo/docker-compose.yml up -d"
+                        '''
+                    }
+                }
         }
     }
 }
