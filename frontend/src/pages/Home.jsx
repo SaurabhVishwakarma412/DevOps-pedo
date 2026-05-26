@@ -249,7 +249,7 @@ const Home = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white leading-tight drop-shadow-2xl">
-            Skip the Travel!
+            Skip the stress of Travel!
             <span className="block bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
               Pediatric Dermatology Online
             </span>
