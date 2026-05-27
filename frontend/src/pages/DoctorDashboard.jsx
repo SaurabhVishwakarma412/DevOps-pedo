@@ -293,7 +293,7 @@ const DoctorDashboard = () => {
                       <option value="pending">Pending Review</option>
                       <option value="in_review">In Review</option>
                       <option value="completed">Completed</option>
-                      <option value="urgent">Urgent (24h)</option>
+                      <option value="urgent">Urgent (2hr)</option>
                     </select>
                   </div>
                 </div>
