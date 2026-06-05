@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pedo-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pedo-backend
+  template:
+    metadata:
+      labels:
+        app: pedo-backend
+    spec:
+      containers:
+      - name: backend
+        image: saurabhkv/project-pedo-backend:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pedo-backend-service
+spec:
+  selector:
+    app: pedo-backend
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: ClusterIP

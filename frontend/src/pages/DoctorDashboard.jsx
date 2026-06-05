@@ -314,7 +314,7 @@ const DoctorDashboard = () => {
                           {urgentCases.length} Urgent Cases Need Attention
                         </h4>
                         <p className={`text-sm ${darkMode ? "text-red-300" : "text-red-700"}`}>
-                          These cases were submitted within the last 24 hours
+                          List of cases were submitted within the last 24 hours
                         </p>
                       </div>
                     </div>
